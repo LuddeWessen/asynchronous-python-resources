@@ -11,7 +11,7 @@ async def hello_world():
 print("Event loop:")
 
 loop = asyncio.get_event_loop()
-loop.run_until_complete(asyncio.gather( 
+loop.run_until_complete(asyncio.gather(
 hello_world(),
 hello_world(),
 hello_world(),
