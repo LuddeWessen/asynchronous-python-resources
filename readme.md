@@ -10,6 +10,7 @@ A repo to show, keep and tinker with asynchronous execution in python.
 This repo is not to be used as something to build upon, but rather a folder of code snippets and resources, e.g. links, articles, videos etc. to show how to use concept, and easily snag for other projects.
 
 * Using asyncio
+* Using threading
 * .. (to come?)
 
 The asynco io module requires python 3.7, and some features even 3.8 and beyond.
@@ -38,14 +39,20 @@ Make sure you have python3.7, or beyond where the 'asyncio' library is included.
 
 <!-- RESOURCES -->
 ## Resources:
-
+Asyncio:
  - Reading: https://docs.python.org/3/library/asyncio.html
- - Watching:
+ - Watching: https://www.youtube.com/watch?v=bs9tlDFWWdQ&t=555s
+
+Threading:
+- Reading: https://docs.python.org/3/library/threading.html
+- Watching: https://www.youtube.com/watch?v=IEEhzQoKtQU
+
+
 
 <!-- EXAMPLES -->
 ## Examples
 
- - To use just run any python file, it should work. Let me know if it does not
+ - To use just run any python file as a script, it should work. Let me know if it does not
 
 
 <!-- TESTS -->
