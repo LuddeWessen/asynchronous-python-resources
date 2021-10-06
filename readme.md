@@ -47,7 +47,9 @@ Threading:
 - Reading: https://docs.python.org/3/library/threading.html
 - Watching: https://www.youtube.com/watch?v=IEEhzQoKtQU
 
-
+Multiprocessing:
+ - Reading: https://docs.python.org/3/library/multiprocessing.html
+ - Watching: https://www.youtube.com/watch?v=fKl2JW_qrso
 
 <!-- EXAMPLES -->
 ## Examples
