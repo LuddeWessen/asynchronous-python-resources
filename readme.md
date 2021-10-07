@@ -9,8 +9,9 @@
 A repo to show, keep and tinker with asynchronous execution in python.
 This repo is not to be used as something to build upon, but rather a folder of code snippets and resources, e.g. links, articles, videos etc. to show how to use concept, and easily snag for other projects.
 
-* Using asyncio
-* Using threading
+* Using threading (when we have lots of I/O leading to idle CPU)
+* Using asyncio (threading mad simple)
+* Using multiprocessing (when we hav CPU-heavy calculations and several cores)
 * .. (to come?)
 
 The asynco io module requires python 3.7, and some features even 3.8 and beyond.
@@ -50,6 +51,8 @@ Threading:
 Multiprocessing:
  - Reading: https://docs.python.org/3/library/multiprocessing.html
  - Watching: https://www.youtube.com/watch?v=fKl2JW_qrso
+
+ - Sharing memory, and message passing (queue and pipe): https://www.geeksforgeeks.org/multiprocessing-python-set-2/
 
 <!-- EXAMPLES -->
 ## Examples
