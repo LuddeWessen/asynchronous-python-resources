@@ -68,7 +68,13 @@ def heavyload_loop(looping_time, should_recalculate, var_names, fname):
                     t_ind = random.randint(0, 2)
                     v_dict[name][t_ind] = v_dict[name][t_ind]+1
 
+            t1 = time.time()
+            no_rw_times = 10000
+            for i_ in range(no_rw_times):
+                Var2Json(v_dict, fname)
+                Json2Dict(fname)
             Var2Json(v_dict, fname)
+            print("Write/read per rw: ", (time.time()-t1)/no_rw_times)
 
             should_recalculate.value = 1 # just re-calculated, but it hasn't been picked up yet
             print("Done re-calculating")
