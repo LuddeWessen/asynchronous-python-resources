@@ -37,21 +37,23 @@ def change_state(should_recalculate):
             print("The world is a-changin!\n")
             should_recalculate.value = 1
 
-def heavyload_loop(looping_time, should_recalculate):
+def heavyload_loop(looping_time, sim_time, should_recalculate):
 
-    while(True):
+    t1 = time.time()
+    while(time.time() - t1 < sim_time):
+        print(time.time() - t1)
         t1 = time.time()
         if should_recalculate.value > 0:
             heavyload(looping_time)
             should_recalculate.value = 0
-            print("Done re-calculating")
+            print("Done re-calculating at ", time.time() - t1)
 
         time.sleep(1.0)
 
-def lightload_loop(delay, should_recalculate):
+def lightload_loop(delay, sim_time, should_recalculate):
 
-    while(True):
-        t1 = time.time()
+    t1 = time.time()
+    while(time.time() - t1 < sim_time):
         if should_recalculate.value > 0:
             print("Sleep")
         else:
@@ -59,8 +61,9 @@ def lightload_loop(delay, should_recalculate):
 
         time.sleep(delay)
 
-def recalculate_loop(delay, should_recalculate):
-    while(True):
+def recalculate_loop(delay, sim_time, should_recalculate):
+    t1 = time.time()
+    while(time.time() - t1 < sim_time):
         change_state(should_recalculate)
         time.sleep(delay)
 
@@ -74,10 +77,12 @@ if __name__ == "__main__":
     recalc_sample_time = 2.5
     inner_loop_sample_time = 0.3
 
+    tot_sim_time = 10.0
+
     # creating new process
-    inner_p = multiprocessing.Process(target=lightload_loop, args=(inner_loop_sample_time, should_recalculate))
-    outer_p = multiprocessing.Process(target=heavyload_loop, args=(heavyload_t, should_recalculate))
-    env_p = multiprocessing.Process(target=recalculate_loop, args=(recalc_sample_time, should_recalculate))
+    inner_p = multiprocessing.Process(target=lightload_loop, args=(inner_loop_sample_time, tot_sim_time, should_recalculate))
+    outer_p = multiprocessing.Process(target=heavyload_loop, args=(heavyload_t, tot_sim_time, should_recalculate))
+    env_p = multiprocessing.Process(target=recalculate_loop, args=(recalc_sample_time, tot_sim_time, should_recalculate))
 
     # starting process
     inner_p.start()
